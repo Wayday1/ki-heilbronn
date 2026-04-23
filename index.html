@@ -1,4 +1,3 @@
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
 
@@ -356,6 +355,39 @@
     color: var(--green);
     font-weight: 500;
   }
+  .job-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .job-cta-link {
+    display: block;
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent2);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .job-cta-link:hover { color: var(--text); }
+  .mid-cta-banner {
+    background: rgba(108,92,231,0.07);
+    border-top: 1px solid rgba(108,92,231,0.2);
+    border-bottom: 1px solid rgba(108,92,231,0.2);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .mid-cta-banner p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .mid-cta-banner strong { color: var(--text); }
 
   /* COMPANIES */
   .companies-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -608,10 +640,10 @@
 <nav>
   <div class="nav-logo"><span class="logo-dot"></span> AI Heilbronn</div>
   <ul class="nav-links">
-    <li><a href="#">Jobs</a></li>
+    <li><a href="#" style="color: var(--text); font-weight: 500;">Jobs</a></li>
     <li><a href="#">Companies</a></li>
     <li><a href="#">Events</a></li>
-    <li><a href="#" class="nav-cta">Post a Job</a></li>
+    <li><a href="#" class="nav-cta">Post a Job →</a></li>
   </ul>
 </nav>
 
@@ -619,19 +651,19 @@
 <div class="hero">
   <div class="hero-badge">
     <span class="pulse"></span>
-    Heilbronn's AI Ecosystem
+    140+ AI Jobs in Heilbronn
   </div>
-  <h1>Where <em>AI talent</em> meets Heilbronn's best companies</h1>
-  <p class="hero-sub">Jobs, companies and community — all in one place. The region's only dedicated AI platform.</p>
+  <h1>The #1 platform for <em>AI jobs</em> in the Heilbronn region</h1>
+  <p class="hero-sub">Find AI roles at top companies — or post a job and reach 1,800+ qualified candidates. Free to browse.</p>
   <div class="hero-actions">
-    <button class="btn-primary">Browse AI Jobs</button>
-    <button class="btn-ghost">List your company →</button>
+    <button class="btn-primary">View AI Jobs →</button>
+    <button class="btn-ghost">Post a Job — from €149</button>
   </div>
   <div class="hero-stats">
     <div class="stat-item"><span class="stat-num">140+</span><span class="stat-label">Open Roles</span></div>
-    <div class="stat-item"><span class="stat-num">60+</span><span class="stat-label">Companies</span></div>
+    <div class="stat-item"><span class="stat-num">60+</span><span class="stat-label">Companies Hiring</span></div>
     <div class="stat-item"><span class="stat-num">1,800+</span><span class="stat-label">Community Members</span></div>
-    <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">Events / Year</span></div>
+    <div class="stat-item"><span class="stat-num">New</span><span class="stat-label">Jobs Added Daily</span></div>
   </div>
 </div>
 
@@ -640,8 +672,8 @@
   <div class="jobs-header">
     <div class="jobs-meta">
       <span class="section-label">Open Roles</span>
-      <h2 class="section-title">Find your next AI role</h2>
-      <p class="section-sub" style="margin-bottom: 0;">Curated positions across ML, engineering, research and product — only in the Heilbronn region.</p>
+      <h2 class="section-title">140+ AI jobs. Updated daily.</h2>
+      <p class="section-sub" style="margin-bottom: 0;">ML, engineering, research, product — exclusively in the Heilbronn region.</p>
     </div>
     <a href="#" class="view-all">View all 140 jobs →</a>
   </div>
@@ -663,6 +695,7 @@
         <span class="job-company-name">Bosch AI Research</span>
       </div>
       <div class="job-title">Senior ML Engineer — Computer Vision</div>
+      <div class="job-desc">Build and ship production CV models for automotive safety systems. Join a team of 40+ researchers.</div>
       <div class="job-tags">
         <span class="tag">PyTorch</span>
         <span class="tag">Python</span>
@@ -672,6 +705,7 @@
         <span class="job-location">📍 Heilbronn · Hybrid</span>
         <span class="job-salary">€85–110k</span>
       </div>
+      <a href="#" class="job-cta-link">View Job →</a>
     </div>
 
     <div class="job-card">
@@ -680,6 +714,7 @@
         <span class="job-company-name">HNKapital</span>
       </div>
       <div class="job-title">AI Product Manager — LLM Applications</div>
+      <div class="job-desc">Own the roadmap for LLM-powered financial tools. Work directly with the founding team.</div>
       <div class="job-tags">
         <span class="tag">LLMs</span>
         <span class="tag">Product</span>
@@ -689,6 +724,7 @@
         <span class="job-location">📍 Heilbronn · On-site</span>
         <span class="job-salary">€75–95k</span>
       </div>
+      <a href="#" class="job-cta-link">View Job →</a>
     </div>
 
     <div class="job-card featured">
@@ -698,6 +734,7 @@
         <span class="job-company-name">DataPulse GmbH</span>
       </div>
       <div class="job-title">NLP Research Scientist</div>
+      <div class="job-desc">Research and deploy transformer-based NLP systems in production at scale. PhDs welcome.</div>
       <div class="job-tags">
         <span class="tag">Transformers</span>
         <span class="tag">Research</span>
@@ -707,6 +744,7 @@
         <span class="job-location">📍 Heilbronn · Remote OK</span>
         <span class="job-salary">€90–125k</span>
       </div>
+      <a href="#" class="job-cta-link">View Job →</a>
     </div>
 
     <div class="job-card">
@@ -715,6 +753,7 @@
         <span class="job-company-name">VisionCraft AI</span>
       </div>
       <div class="job-title">MLOps Engineer — Infrastructure</div>
+      <div class="job-desc">Scale ML training pipelines and inference infra for a fast-growing computer vision startup.</div>
       <div class="job-tags">
         <span class="tag">Kubernetes</span>
         <span class="tag">MLflow</span>
@@ -724,6 +763,7 @@
         <span class="job-location">📍 Heilbronn · Hybrid</span>
         <span class="job-salary">€70–90k</span>
       </div>
+      <a href="#" class="job-cta-link">View Job →</a>
     </div>
 
     <div class="job-card">
@@ -732,6 +772,7 @@
         <span class="job-company-name">Axon Intelligence</span>
       </div>
       <div class="job-title">Data Scientist — Automotive AI</div>
+      <div class="job-desc">Apply ML to real-world sensor data for autonomous driving systems in a collaborative team.</div>
       <div class="job-tags">
         <span class="tag">Python</span>
         <span class="tag">Spark</span>
@@ -741,22 +782,29 @@
         <span class="job-location">📍 Neckarsulm</span>
         <span class="job-salary">€65–80k</span>
       </div>
+      <a href="#" class="job-cta-link">View Job →</a>
     </div>
 
     <div class="job-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: rgba(108,92,231,0.04); border-style: dashed;">
       <div style="font-size: 22px; margin-bottom: 10px;">+133</div>
       <div style="font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px;">More open roles</div>
-      <div style="font-size: 12px; color: var(--muted); margin-bottom: 16px;">New jobs added daily</div>
-      <button class="btn-ghost" style="font-size: 13px; padding: 10px 20px;">View all jobs →</button>
+      <div style="font-size: 12px; color: var(--muted); margin-bottom: 16px;">New jobs added every day</div>
+      <button class="btn-primary" style="font-size: 13px; padding: 10px 20px; width: 100%;">View all jobs →</button>
     </div>
   </div>
 </section>
 
+<!-- MID-PAGE COMPANY NUDGE -->
+<div class="mid-cta-banner">
+  <p><strong>Hiring AI talent?</strong> Post your role and reach 1,800+ active candidates in Heilbronn.</p>
+  <button class="btn-primary" style="font-size: 13px; padding: 10px 20px; white-space: nowrap;">Post a Job — from €149</button>
+</div>
+
 <!-- COMPANIES SECTION -->
 <section class="companies-section">
   <span class="section-label">Companies</span>
-  <h2 class="section-title">Who's building in Heilbronn</h2>
-  <p class="section-sub">From global corporates to high-growth startups — the region's leading AI employers, in one place.</p>
+  <h2 class="section-title">60+ companies hiring in Heilbronn</h2>
+  <p class="section-sub">From global players to fast-growing startups — the region's top AI employers in one place.</p>
 
   <div class="companies-grid">
     <div class="company-card">
@@ -784,9 +832,9 @@
       <div class="company-card-jobs">9 open roles</div>
     </div>
     <div class="company-card" style="border-style: dashed; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
-      <div style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Want to be listed?</div>
-      <div style="font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 14px;">Add your company</div>
-      <button class="btn-ghost" style="font-size: 12px; padding: 8px 16px;">Get listed →</button>
+      <div style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Hiring AI talent?</div>
+      <div style="font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 14px;">List your company — reach 1,800+ candidates</div>
+      <button class="btn-primary" style="font-size: 12px; padding: 8px 16px;">Post a Job →</button>
     </div>
   </div>
 </section>
@@ -796,8 +844,8 @@
   <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
     <div>
       <span class="section-label">Community &amp; Events</span>
-      <h2 class="section-title">Where the ecosystem meets</h2>
-      <p class="section-sub" style="margin-bottom: 0;">Talks, workshops, and meetups — built for AI builders, researchers and founders.</p>
+      <h2 class="section-title">Where the AI ecosystem meets</h2>
+      <p class="section-sub" style="margin-bottom: 0;">Talks, workshops and meetups — for builders, researchers and founders.</p>
     </div>
     <a href="#" class="view-all">All events →</a>
   </div>
@@ -865,14 +913,29 @@
 <!-- COMPANY CTA -->
 <section class="cta-section">
   <span class="section-label" style="display: block; margin-bottom: 10px;">For Companies</span>
-  <h2 class="section-title" style="margin: 0 auto 8px; max-width: 500px;">Hire AI talent.<br>Get discovered.</h2>
-  <p style="font-size: 15px; color: var(--muted); margin-bottom: 44px; font-weight: 300;">Reach Heilbronn's entire AI community in one place.</p>
+  <h2 class="section-title" style="margin: 0 auto 8px; max-width: 500px;">Find AI talent.<br>Get discovered.</h2>
+  <p style="font-size: 15px; color: var(--muted); margin-bottom: 36px; font-weight: 300;">Reach Heilbronn's entire AI community — the only platform built for this region.</p>
+
+  <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 44px;">
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted);">
+      <span style="color: var(--green); font-size: 16px;">✓</span> 1,800+ qualified candidates
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted);">
+      <span style="color: var(--green); font-size: 16px;">✓</span> Newsletter to active job seekers
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted);">
+      <span style="color: var(--green); font-size: 16px;">✓</span> Listed alongside Bosch, Axon & more
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted);">
+      <span style="color: var(--green); font-size: 16px;">✓</span> Live in under 24 hours
+    </div>
+  </div>
 
   <div class="cta-options">
     <div class="cta-card">
       <div class="cta-card-icon" style="background: rgba(255,255,255,0.06);">📋</div>
       <div class="cta-card-title">Job Listing</div>
-      <div class="cta-card-desc">Post a role and reach hundreds of qualified AI engineers and researchers — actively looking in the region.</div>
+      <div class="cta-card-desc">Post a role. Reach hundreds of qualified AI engineers, researchers and PMs actively looking in the region.</div>
       <div class="cta-card-price">€149 <span>/ 30 days</span></div>
       <ul class="cta-features">
         <li>Listed for 30 days</li>
@@ -880,13 +943,13 @@
         <li>Shareable job page</li>
         <li>Application tracking</li>
       </ul>
-      <button class="btn-cta-ghost">Post a Job</button>
+      <button class="btn-cta-primary" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border2);">Post a Job</button>
     </div>
 
     <div class="cta-card highlight">
       <div class="cta-card-icon" style="background: rgba(108,92,231,0.2);">🏢</div>
       <div class="cta-card-title">Company Profile</div>
-      <div class="cta-card-desc">A dedicated company page. Show your culture, team and open roles. Be the first company talent finds.</div>
+      <div class="cta-card-desc">A full company page — culture, team and open roles. Be the first AI employer candidates discover.</div>
       <div class="cta-card-price">€299 <span>/ year</span></div>
       <ul class="cta-features">
         <li>Verified company badge</li>
@@ -894,7 +957,7 @@
         <li>Unlimited job postings</li>
         <li>Priority placement</li>
       </ul>
-      <button class="btn-cta-primary">Get Company Profile</button>
+      <button class="btn-cta-primary">Get Company Profile →</button>
     </div>
   </div>
 </section>
