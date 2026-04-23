@@ -1,0 +1,922 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #18181f;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #f0eff5;
+    --muted: #8b8a9e;
+    --accent: #6c5ce7;
+    --accent2: #a29bfe;
+    --accent3: #fd79a8;
+    --green: #00cec9;
+    --amber: #fdcb6e;
+    --sans: 'DM Sans', sans-serif;
+    --serif: 'DM Serif Display', serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-dot {
+    width: 8px; height: 8px;
+    background: var(--accent2);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+  }
+  .nav-cta:hover { background: #7d6ff0 !important; }
+
+  /* HERO */
+  .hero {
+    padding: 96px 32px 88px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(108,92,231,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(108,92,231,0.12);
+    border: 1px solid rgba(108,92,231,0.3);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .pulse {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5.5vw, 60px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 420px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { background: #7d6ff0; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border2);
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--text);
+    display: block;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* SECTION SHARED */
+  section { padding: 72px 32px; }
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 44px;
+    font-weight: 300;
+  }
+
+  /* JOBS */
+  .jobs-section { background: var(--bg); }
+  .jobs-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .jobs-meta { max-width: 480px; }
+  .view-all {
+    color: var(--accent2);
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(162,155,254,0.3);
+    padding-bottom: 1px;
+    white-space: nowrap;
+  }
+  .job-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .filter-chip {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all 0.18s;
+  }
+  .filter-chip:hover, .filter-chip.active {
+    border-color: var(--accent);
+    color: var(--accent2);
+    background: rgba(108,92,231,0.1);
+  }
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .job-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .job-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+    background: var(--bg3);
+  }
+  .job-card.featured {
+    border-color: rgba(108,92,231,0.35);
+    background: linear-gradient(135deg, rgba(108,92,231,0.06), var(--bg2));
+  }
+  .featured-badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: rgba(108,92,231,0.2);
+    color: var(--accent2);
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 100px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .job-company-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .company-logo {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--serif);
+    flex-shrink: 0;
+  }
+  .job-company-name { font-size: 12px; color: var(--muted); }
+  .job-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .job-location { font-size: 12px; color: var(--muted); }
+  .job-salary {
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  /* COMPANIES */
+  .companies-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .company-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 18px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .company-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+  }
+  .company-card-logo {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+  .company-card-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .company-card-tag {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .company-card-jobs {
+    font-size: 11px;
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  /* EVENTS */
+  .events-section { background: var(--bg); }
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .event-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .event-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .event-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .event-day {
+    background: rgba(108,92,231,0.15);
+    border: 1px solid rgba(108,92,231,0.3);
+    border-radius: 8px;
+    padding: 6px 10px;
+    text-align: center;
+  }
+  .event-day-num {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--accent2);
+    display: block;
+    line-height: 1;
+  }
+  .event-day-mon {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    letter-spacing: 0.06em;
+  }
+  .event-type {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .event-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+  .event-desc { font-size: 13px; color: var(--muted); line-height: 1.55; margin-bottom: 16px; }
+  .event-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .event-attendees { color: var(--green); font-weight: 500; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 88px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse, rgba(108,92,231,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  @media (max-width: 540px) { .cta-options { grid-template-columns: 1fr; } }
+  .cta-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    text-align: left;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .cta-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .cta-card.highlight { border-color: rgba(108,92,231,0.4); }
+  .cta-card-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+  .cta-card-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .cta-card-desc { font-size: 13px; color: var(--muted); margin-bottom: 22px; line-height: 1.6; }
+  .cta-card-price {
+    font-size: 22px;
+    font-family: var(--serif);
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .cta-card-price span { font-size: 13px; color: var(--muted); font-family: var(--sans); }
+  .cta-features { list-style: none; margin-bottom: 24px; }
+  .cta-features li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cta-features li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  .btn-cta-primary {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 13px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-cta-primary:hover { background: #7d6ff0; }
+  .btn-cta-ghost {
+    width: 100%;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border2);
+    padding: 13px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-cta-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+
+  /* FOOTER */
+  footer {
+    padding: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .footer-links a:hover { color: var(--text); }
+</style>
+
+<nav>
+  <div class="nav-logo"><span class="logo-dot"></span> AI Heilbronn</div>
+  <ul class="nav-links">
+    <li><a href="#">Jobs</a></li>
+    <li><a href="#">Companies</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#" class="nav-cta">Post a Job</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="pulse"></span>
+    Heilbronn's AI Ecosystem
+  </div>
+  <h1>Where <em>AI talent</em> meets Heilbronn's best companies</h1>
+  <p class="hero-sub">Jobs, companies and community — all in one place. The region's only dedicated AI platform.</p>
+  <div class="hero-actions">
+    <button class="btn-primary">Browse AI Jobs</button>
+    <button class="btn-ghost">List your company →</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">140+</span><span class="stat-label">Open Roles</span></div>
+    <div class="stat-item"><span class="stat-num">60+</span><span class="stat-label">Companies</span></div>
+    <div class="stat-item"><span class="stat-num">1,800+</span><span class="stat-label">Community Members</span></div>
+    <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">Events / Year</span></div>
+  </div>
+</div>
+
+<!-- JOBS SECTION -->
+<section class="jobs-section">
+  <div class="jobs-header">
+    <div class="jobs-meta">
+      <span class="section-label">Open Roles</span>
+      <h2 class="section-title">Find your next AI role</h2>
+      <p class="section-sub" style="margin-bottom: 0;">Curated positions across ML, engineering, research and product — only in the Heilbronn region.</p>
+    </div>
+    <a href="#" class="view-all">View all 140 jobs →</a>
+  </div>
+
+  <div class="job-filters">
+    <button class="filter-chip active">All</button>
+    <button class="filter-chip">Machine Learning</button>
+    <button class="filter-chip">Engineering</button>
+    <button class="filter-chip">Research</button>
+    <button class="filter-chip">Product</button>
+    <button class="filter-chip">Remote</button>
+  </div>
+
+  <div class="jobs-grid">
+    <div class="job-card featured">
+      <span class="featured-badge">Featured</span>
+      <div class="job-company-row">
+        <div class="company-logo" style="background: rgba(108,92,231,0.15); color: #a29bfe;">Bk</div>
+        <span class="job-company-name">Bosch AI Research</span>
+      </div>
+      <div class="job-title">Senior ML Engineer — Computer Vision</div>
+      <div class="job-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">Python</span>
+        <span class="tag">Full-time</span>
+      </div>
+      <div class="job-footer">
+        <span class="job-location">📍 Heilbronn · Hybrid</span>
+        <span class="job-salary">€85–110k</span>
+      </div>
+    </div>
+
+    <div class="job-card">
+      <div class="job-company-row">
+        <div class="company-logo" style="background: rgba(0,206,201,0.12); color: #00cec9;">Hn</div>
+        <span class="job-company-name">HNKapital</span>
+      </div>
+      <div class="job-title">AI Product Manager — LLM Applications</div>
+      <div class="job-tags">
+        <span class="tag">LLMs</span>
+        <span class="tag">Product</span>
+        <span class="tag">Full-time</span>
+      </div>
+      <div class="job-footer">
+        <span class="job-location">📍 Heilbronn · On-site</span>
+        <span class="job-salary">€75–95k</span>
+      </div>
+    </div>
+
+    <div class="job-card featured">
+      <span class="featured-badge">Featured</span>
+      <div class="job-company-row">
+        <div class="company-logo" style="background: rgba(253,121,168,0.12); color: #fd79a8;">Dp</div>
+        <span class="job-company-name">DataPulse GmbH</span>
+      </div>
+      <div class="job-title">NLP Research Scientist</div>
+      <div class="job-tags">
+        <span class="tag">Transformers</span>
+        <span class="tag">Research</span>
+        <span class="tag">Full-time</span>
+      </div>
+      <div class="job-footer">
+        <span class="job-location">📍 Heilbronn · Remote OK</span>
+        <span class="job-salary">€90–125k</span>
+      </div>
+    </div>
+
+    <div class="job-card">
+      <div class="job-company-row">
+        <div class="company-logo" style="background: rgba(253,203,110,0.12); color: #fdcb6e;">Vc</div>
+        <span class="job-company-name">VisionCraft AI</span>
+      </div>
+      <div class="job-title">MLOps Engineer — Infrastructure</div>
+      <div class="job-tags">
+        <span class="tag">Kubernetes</span>
+        <span class="tag">MLflow</span>
+        <span class="tag">Full-time</span>
+      </div>
+      <div class="job-footer">
+        <span class="job-location">📍 Heilbronn · Hybrid</span>
+        <span class="job-salary">€70–90k</span>
+      </div>
+    </div>
+
+    <div class="job-card">
+      <div class="job-company-row">
+        <div class="company-logo" style="background: rgba(108,92,231,0.1); color: #a29bfe;">Ax</div>
+        <span class="job-company-name">Axon Intelligence</span>
+      </div>
+      <div class="job-title">Data Scientist — Automotive AI</div>
+      <div class="job-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Spark</span>
+        <span class="tag">Part-time OK</span>
+      </div>
+      <div class="job-footer">
+        <span class="job-location">📍 Neckarsulm</span>
+        <span class="job-salary">€65–80k</span>
+      </div>
+    </div>
+
+    <div class="job-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: rgba(108,92,231,0.04); border-style: dashed;">
+      <div style="font-size: 22px; margin-bottom: 10px;">+133</div>
+      <div style="font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px;">More open roles</div>
+      <div style="font-size: 12px; color: var(--muted); margin-bottom: 16px;">New jobs added daily</div>
+      <button class="btn-ghost" style="font-size: 13px; padding: 10px 20px;">View all jobs →</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANIES SECTION -->
+<section class="companies-section">
+  <span class="section-label">Companies</span>
+  <h2 class="section-title">Who's building in Heilbronn</h2>
+  <p class="section-sub">From global corporates to high-growth startups — the region's leading AI employers, in one place.</p>
+
+  <div class="companies-grid">
+    <div class="company-card">
+      <div class="company-card-logo" style="background: rgba(108,92,231,0.12); color: #a29bfe;">B</div>
+      <div class="company-card-name">Bosch AI Research</div>
+      <div class="company-card-tag">Automotive · R&amp;D</div>
+      <div class="company-card-jobs">18 open roles</div>
+    </div>
+    <div class="company-card">
+      <div class="company-card-logo" style="background: rgba(0,206,201,0.12); color: #00cec9;">D</div>
+      <div class="company-card-name">DataPulse GmbH</div>
+      <div class="company-card-tag">Analytics · SaaS</div>
+      <div class="company-card-jobs">6 open roles</div>
+    </div>
+    <div class="company-card">
+      <div class="company-card-logo" style="background: rgba(253,121,168,0.12); color: #fd79a8;">V</div>
+      <div class="company-card-name">VisionCraft AI</div>
+      <div class="company-card-tag">Computer Vision</div>
+      <div class="company-card-jobs">4 open roles</div>
+    </div>
+    <div class="company-card">
+      <div class="company-card-logo" style="background: rgba(253,203,110,0.12); color: #fdcb6e;">A</div>
+      <div class="company-card-name">Axon Intelligence</div>
+      <div class="company-card-tag">Automotive AI</div>
+      <div class="company-card-jobs">9 open roles</div>
+    </div>
+    <div class="company-card" style="border-style: dashed; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
+      <div style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Want to be listed?</div>
+      <div style="font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 14px;">Add your company</div>
+      <button class="btn-ghost" style="font-size: 12px; padding: 8px 16px;">Get listed →</button>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS SECTION -->
+<section class="events-section">
+  <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+    <div>
+      <span class="section-label">Community &amp; Events</span>
+      <h2 class="section-title">Where the ecosystem meets</h2>
+      <p class="section-sub" style="margin-bottom: 0;">Talks, workshops, and meetups — built for AI builders, researchers and founders.</p>
+    </div>
+    <a href="#" class="view-all">All events →</a>
+  </div>
+
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="event-date">
+        <div class="event-day">
+          <span class="event-day-num">15</span>
+          <span class="event-day-mon">May</span>
+        </div>
+        <div>
+          <div class="event-type">Meetup</div>
+          <div style="font-size: 11px; color: var(--muted);">18:30 · Bildungscampus</div>
+        </div>
+      </div>
+      <div class="event-title">AI in Production: Real-world LLM deployments</div>
+      <div class="event-desc">Engineers share what actually works — infra, evals, cost, latency. Candid, no-slides format.</div>
+      <div class="event-footer">
+        <span>Bildungscampus, HN</span>
+        <span class="event-attendees">82 attending</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">
+        <div class="event-day">
+          <span class="event-day-num">22</span>
+          <span class="event-day-mon">May</span>
+        </div>
+        <div>
+          <div class="event-type">Workshop</div>
+          <div style="font-size: 11px; color: var(--muted);">10:00 · Full Day</div>
+        </div>
+      </div>
+      <div class="event-title">Fine-tuning Open-Source Models</div>
+      <div class="event-desc">Hands-on workshop. Bring your laptop. We'll fine-tune Mistral on a real dataset from scratch.</div>
+      <div class="event-footer">
+        <span>Online · Remote</span>
+        <span class="event-attendees">34 registered</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">
+        <div class="event-day">
+          <span class="event-day-num">6</span>
+          <span class="event-day-mon">Jun</span>
+        </div>
+        <div>
+          <div class="event-type">Conference</div>
+          <div style="font-size: 11px; color: var(--muted);">09:00 · All Day</div>
+        </div>
+      </div>
+      <div class="event-title">Heilbronn AI Summit 2025</div>
+      <div class="event-desc">The region's flagship AI day. Speakers from research, industry and policy. 400+ expected.</div>
+      <div class="event-footer">
+        <span>Experimenta, HN</span>
+        <span class="event-attendees">210 attending</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY CTA -->
+<section class="cta-section">
+  <span class="section-label" style="display: block; margin-bottom: 10px;">For Companies</span>
+  <h2 class="section-title" style="margin: 0 auto 8px; max-width: 500px;">Hire AI talent.<br>Get discovered.</h2>
+  <p style="font-size: 15px; color: var(--muted); margin-bottom: 44px; font-weight: 300;">Reach Heilbronn's entire AI community in one place.</p>
+
+  <div class="cta-options">
+    <div class="cta-card">
+      <div class="cta-card-icon" style="background: rgba(255,255,255,0.06);">📋</div>
+      <div class="cta-card-title">Job Listing</div>
+      <div class="cta-card-desc">Post a role and reach hundreds of qualified AI engineers and researchers — actively looking in the region.</div>
+      <div class="cta-card-price">€149 <span>/ 30 days</span></div>
+      <ul class="cta-features">
+        <li>Listed for 30 days</li>
+        <li>Email to 1,800+ subscribers</li>
+        <li>Shareable job page</li>
+        <li>Application tracking</li>
+      </ul>
+      <button class="btn-cta-ghost">Post a Job</button>
+    </div>
+
+    <div class="cta-card highlight">
+      <div class="cta-card-icon" style="background: rgba(108,92,231,0.2);">🏢</div>
+      <div class="cta-card-title">Company Profile</div>
+      <div class="cta-card-desc">A dedicated company page. Show your culture, team and open roles. Be the first company talent finds.</div>
+      <div class="cta-card-price">€299 <span>/ year</span></div>
+      <ul class="cta-features">
+        <li>Verified company badge</li>
+        <li>Featured in newsletter</li>
+        <li>Unlimited job postings</li>
+        <li>Priority placement</li>
+      </ul>
+      <button class="btn-cta-primary">Get Company Profile</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="logo-dot"></span> AI Heilbronn</div>
+  <ul class="footer-links">
+    <li><a href="#">Jobs</a></li>
+    <li><a href="#">Companies</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div style="font-size: 11px; color: var(--muted);">© 2025 AI Heilbronn</div>
+</footer>
+
+<script>
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
