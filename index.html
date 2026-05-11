@@ -1255,7 +1255,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 12px;
-  opacity: 0.55;
+  opacity: 0.80;
   transition: opacity 0.18s;
 }
 .trust-item:hover { opacity: 0.8; }
@@ -1449,13 +1449,126 @@ footer {
   background-clip: text;
   animation: shimmer 2.5s linear 0.6s forwards;
 }
+
+/* ── CONVERSION PRESSURE CSS ── */
+
+/* Urgency strip — stronger */
+.urgency-strip {
+  background: linear-gradient(90deg, rgba(84,72,204,0.28), rgba(46,212,146,0.1), rgba(84,72,204,0.28)) !important;
+  border-bottom: 1px solid rgba(84,72,204,0.4) !important;
+  font-size: 13px !important;
+  padding: 12px 20px !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Nav CTA — bigger, unmissable */
+.nav-cta {
+  background: var(--accent) !important;
+  padding: 10px 26px !important;
+  font-size: 14px !important;
+  box-shadow: 0 0 20px rgba(84,72,204,0.6), inset 0 1px 0 rgba(255,255,255,0.2) !important;
+  animation: nav-pulse 3s ease-in-out infinite !important;
+}
+@keyframes nav-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(84,72,204,0.5); }
+  50% { box-shadow: 0 0 32px rgba(84,72,204,0.9), 0 0 0 3px rgba(84,72,204,0.15); }
+}
+
+/* Hero — tighter padding, faster to jobs */
+.hero { padding-top: 120px !important; }
+.hero-actions { margin-bottom: 72px !important; }
+
+/* Jobs outer — accent line stronger */
+.jobs-outer::before { opacity: 1 !important; height: 4px !important; }
+
+/* Job cards — larger, more dominant */
+.jobs-grid { gap: 20px !important; }
+.job-card { padding: 36px !important; border-width: 1.5px !important; }
+.job-card:hover { transform: translateY(-7px) !important; }
+.job-title { font-size: 19px !important; }
+.job-salary { font-size: 15px !important; }
+
+/* Job CTA button — dominant */
+.job-cta-btn {
+  font-size: 14px !important;
+  padding: 10px 20px !important;
+  background: rgba(84,72,204,0.3) !important;
+  border-color: rgba(136,121,240,0.5) !important;
+  font-weight: 700 !important;
+}
+.job-cta-btn:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent-h) !important;
+}
+
+/* Jobs below-CTA — more separation */
+.jobs-cta-row { margin-top: 56px !important; }
+.jobs-cta-row .btn-primary {
+  padding: 20px 56px !important;
+  font-size: 17px !important;
+  box-shadow: 0 8px 36px rgba(84,72,204,0.65) !important;
+}
+
+/* Mid-page nudge — make it pop */
+.mid-cta-outer {
+  background: linear-gradient(90deg, rgba(84,72,204,0.1), var(--bg2), rgba(84,72,204,0.1)) !important;
+  border-top: 1px solid rgba(84,72,204,0.22) !important;
+  border-bottom: 1px solid rgba(84,72,204,0.22) !important;
+}
+.mid-cta-inner { padding: 32px 56px !important; }
+.mid-cta-inner p { font-size: 16px !important; color: var(--text2) !important; }
+
+/* Sales section CTA — dominant */
+.sales-section .btn-primary {
+  padding: 18px 40px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
+/* Pricing primary button — bigger */
+.btn-pricing-primary {
+  padding: 18px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+.btn-pricing-ghost {
+  padding: 16px !important;
+  font-size: 15px !important;
+}
+
+/* Final CTA — max pressure */
+.final-cta-section { padding: 120px 56px !important; }
+.final-cta-actions .btn-primary {
+  padding: 22px 52px !important;
+  font-size: 17px !important;
+  box-shadow: 0 8px 40px rgba(84,72,204,0.7) !important;
+}
+.final-cta-actions .btn-ghost {
+  padding: 22px 40px !important;
+  font-size: 15px !important;
+}
+
+/* Featured badge — bolder */
+.featured-badge {
+  background: rgba(84,72,204,0.3) !important;
+  color: #fff !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  padding: 6px 14px !important;
+  border-color: rgba(136,121,240,0.5) !important;
+}
+
+/* Section titles — tighter, more punch */
+.section-title { line-height: 1.05 !important; }
+.section-sub { font-size: 15px !important; color: var(--text2) !important; opacity: 0.8; }
+
 </style>
 </head>
 <body>
 
 <!-- ─── URGENCY STRIP ────────────────────────────────── -->
 <div class="urgency-strip">
-  <span>12 new roles added today</span> · Heilbronn's only dedicated AI talent platform
+  <span>12 new roles added today</span> · 1,800+ candidates already here · Post a job from €149
 </div>
 
 <!-- ─── NAV ─────────────────────────────────────────── -->
@@ -1480,16 +1593,16 @@ footer {
 
   <div class="hero-badge">
     <div class="badge-dot"><div class="pulse-dot"></div></div>
-    140+ live AI jobs · updated daily
+    🟢 140+ live AI jobs — updated daily
   </div>
 
-  <h1>The AI job market<br>of Heilbronn —<br><em>all in one place.</em></h1>
+  <h1>Heilbronn's #1<br>AI job platform —<br><em>find your role now.</em></h1>
 
-  <p class="hero-sub">Find your next AI role. Or hire the region's best AI talent. Built exclusively for Heilbronn.</p>
+  <p class="hero-sub">140+ open AI roles. No generalist job boards. No noise. Just Heilbronn AI — and your next move.</p>
 
   <div class="hero-actions">
     <a href="#jobs" class="btn-primary">
-      Browse Open Jobs →
+      See All Open Jobs →
     </a>
     <a href="#hire" class="btn-ghost">
       Post a Job — from €149
@@ -1523,8 +1636,8 @@ footer {
     <div class="jobs-header reveal">
       <div class="jobs-header-left">
         <span class="section-label">Open Roles</span>
-        <h2 class="section-title">140+ AI jobs. Updated daily.</h2>
-        <p class="section-sub">ML · Engineering · Research · Product — the Heilbronn region only.</p>
+        <h2 class="section-title">140+ AI jobs in Heilbronn. Updated every day.</h2>
+        <p class="section-sub">ML · Engineering · Research · Product. This is where AI careers in the Heilbronn region get started.</p>
       </div>
       <a href="#" class="view-all">View all 140 jobs</a>
     </div>
@@ -1587,7 +1700,7 @@ footer {
         </div>
         <div class="job-apply-row">
           <a href="#" class="job-cta-btn">View & Apply →</a>
-          <span style="font-size: 11px; color: var(--green);">Posted today</span>
+          <span style="font-size: 11px; color: var(--green); font-weight: 700; background: rgba(46,212,146,0.1); border: 1px solid rgba(46,212,146,0.3); padding: 3px 9px; border-radius: 100px;">🔥 Posted today</span>
         </div>
       </div>
 
@@ -1670,7 +1783,7 @@ footer {
       <!-- More jobs card -->
       <div class="job-card job-card-more reveal" onclick="window.location='#'">
         <div class="more-count">+133</div>
-        <div style="font-size: 15px; font-weight: 600; color: var(--text2); margin-bottom: 8px; letter-spacing: -0.025em;">More open roles</div>
+        <div style="font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; letter-spacing: -0.025em;">+133 more open roles</div>
         <div style="font-size: 13px; color: var(--muted2); margin-bottom: 28px; font-weight: 300;">New positions added every day</div>
         <button class="btn-primary" style="font-size: 14px; padding: 13px 28px;">Browse all jobs →</button>
       </div>
@@ -1678,8 +1791,8 @@ footer {
 
     <!-- CTA below jobs -->
     <div class="jobs-cta-row reveal">
-      <a href="#" class="btn-primary" style="padding: 18px 48px; font-size: 16px; box-shadow: 0 6px 28px rgba(84,72,204,0.55);">Browse all 140 AI Jobs →</a>
-      <span class="jobs-cta-note">Free to browse · No account required · Updated daily</span>
+      <a href="#" class="btn-primary" style="padding: 18px 48px; font-size: 16px; box-shadow: 0 6px 28px rgba(84,72,204,0.55);">View All 140 Open Roles — Free →</a>
+      <span class="jobs-cta-note">✓ Free to browse &nbsp;·&nbsp; ✓ No account &nbsp;·&nbsp; ✓ Updated daily</span>
     </div>
 
   </div>
@@ -1688,7 +1801,7 @@ footer {
 <!-- ─── MID-PAGE COMPANY NUDGE ────────────────────────── -->
 <div class="mid-cta-outer">
   <div class="mid-cta-inner">
-    <p><strong>Hiring AI talent?</strong> Reach 1,800+ active candidates in Heilbronn — live within 24 hours.</p>
+    <p><strong>Hiring AI talent?</strong> 1,800 qualified candidates. Live in 24h. First applications in days — not weeks.</p>
     <a href="#hire" class="btn-primary" style="font-size: 13.5px; padding: 12px 24px;">👉 Post a Job — from €149</a>
   </div>
 </div>
@@ -1698,8 +1811,8 @@ footer {
   <div class="companies-section">
     <div class="reveal">
       <span class="section-label">Companies</span>
-      <h2 class="section-title">60+ companies hiring now</h2>
-      <p class="section-sub">From global players to fast-growing startups — Heilbronn's top AI employers.</p>
+      <h2 class="section-title">60+ companies actively hiring in Heilbronn.</h2>
+      <p class="section-sub">Global players and fast-growing startups. All looking for AI talent. All posting here.</p>
     </div>
 
     <div class="companies-grid">
@@ -1840,7 +1953,7 @@ footer {
     </div>
 
     <div style="text-align: center; margin-top: 60px;" class="reveal">
-      <a href="#" class="btn-ghost" style="display: inline-flex; text-decoration: none; padding: 14px 34px; font-size: 14px;">See all upcoming events →</a>
+      <a href="#" class="btn-ghost" style="display: inline-flex; text-decoration: none; padding: 14px 34px; font-size: 14px; margin-right: 14px;">See all events →</a><a href="#jobs" class="btn-primary" style="display: inline-flex; text-decoration: none; padding: 14px 34px; font-size: 14px;">View Open Jobs →</a>
     </div>
   </div>
 </div>
@@ -1852,32 +1965,27 @@ footer {
 
       <!-- LEFT: Sales pitch -->
       <div class="sales-left reveal">
-        <span class="section-label">For Companies</span>
+        <span class="section-label">Hire AI Talent Now</span>
         <h2 class="sales-headline">
-          Find AI talent<br>in Heilbronn —<br>
-          <em>fast.</em>
+          Hire AI talent<br>in Heilbronn —<br>
+          <em>done in days.</em>
         </h2>
-        <p class="sales-sub">The only platform where AI candidates in Heilbronn actively search for work. Your next hire is already here.</p>
+        <p class="sales-sub">1,800 engineers, researchers, and PMs actively looking. One post. Instant reach. First applications within 48 hours.</p>
 
         <ul class="sales-benefits">
           <li>
             <div class="benefit-icon">✓</div>
-            <span><strong style="color: var(--text);">1,800+ qualified candidates</strong> — engineers, researchers, and PMs actively looking</span>
+            <span><strong style="color: var(--text);">First applications within 48 hours</strong> — direct email blast to 1,800+ active candidates the moment you post</span>
           </li>
           <li>
             <div class="benefit-icon">✓</div>
-            <span><strong style="color: var(--text);">Instant email blast on posting</strong> — reach the full audience the same day</span>
+            <span><strong style="color: var(--text);">Pre-qualified AI talent only</strong> — ML engineers, NLP researchers, AI PMs. No generalist noise, no off-topic CVs</span>
           </li>
           <li>
             <div class="benefit-icon">✓</div>
-            <span><strong style="color: var(--text);">Listed alongside Bosch, Axon & more</strong> — instant credibility in the market</span>
-          </li>
-          <li>
-            <div class="benefit-icon">✓</div>
-            <span><strong style="color: var(--text);">Live within 24 hours</strong> — no back-and-forth, no waiting</span>
+            <span><strong style="color: var(--text);">Employer brand visible all year</strong> — listed alongside Bosch &amp; Axon. Company profile from €299/yr</span>
           </li>
         </ul>
-
         <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 36px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <div style="display: flex;">
@@ -1885,7 +1993,7 @@ footer {
               <div style="width: 30px; height: 30px; border-radius: 50%; background: rgba(52,211,153,0.2); border: 2px solid var(--bg2); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #34d399; font-family: var(--display); font-weight: 700; margin-right: -8px; z-index: 2; position: relative;">D</div>
               <div style="width: 30px; height: 30px; border-radius: 50%; background: rgba(251,191,36,0.2); border: 2px solid var(--bg2); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fbbf24; font-family: var(--display); font-weight: 700; z-index: 1; position: relative;">A</div>
             </div>
-            <span style="font-size: 13px; color: var(--muted); font-weight: 300; margin-left: 14px;">60+ companies already trust us</span>
+            <span style="font-size: 13px; color: var(--text2); font-weight: 500; margin-left: 14px;">60+ companies hiring on AI Heilbronn right now</span>
           </div>
         </div>
 
@@ -1953,9 +2061,9 @@ footer {
 <!-- ─── FINAL CTA ──────────────────────────────────────── -->
 <div class="final-cta-outer">
   <div class="final-cta-section reveal">
-    <span class="section-label" style="justify-content: center;">Ready to start?</span>
-    <h2 class="final-cta-title">Your next AI role<br>is <em>already here.</em></h2>
-    <p class="final-cta-sub">140+ open positions. Free to browse. No account needed.<br>The Heilbronn AI talent market — in one place.</p>
+    <span class="section-label" style="justify-content: center;">Don't wait</span>
+    <h2 class="final-cta-title">140 open roles.<br><em>One of them is yours.</em></h2>
+    <p class="final-cta-sub">Free to browse. No account required. Updated daily.<br>Every day you wait, someone else takes the role.</p>
     <div class="final-cta-actions">
       <a href="#jobs" class="btn-primary">Browse All Jobs →</a>
       <a href="#hire" class="btn-ghost">Post a Job — from €149</a>
